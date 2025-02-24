@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>Blank Joy - 無樂</title>
+  <style>
+    /* ---------------- 全局样式 ---------------- */
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: rgb(54, 54, 54);
+      color: #fff;
+      overflow-x: hidden;
+    }
+    /* ---------------- 顶部区域（关于 Blank Joy – 無樂） ---------------- */
+    .top-section {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .logo {
+      width: 150px;
+      margin-bottom: 3cm; /* 由6cm改为3cm */
+    }
+    .about {
+      font-size: 2rem;
+      letter-spacing: 2px;
+      animation: fadePulse 3s infinite ease-in-out;
+    }
+    @keyframes fadePulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    /* ---------------- 介绍区域 ---------------- */
+    .intro-section {
+      padding: 50px 20px;
+      text-align: center;
+    }
+    .intro-english {
+      font-size: 2.5rem;
+      font-weight: 300;
+    }
+    /* 英文分两行，第二行与第一行间隔1.5cm */
+    .intro-english .line2 {
+      margin-top: 1.5cm;
+    }
+    /* 中文介绍：切分为两行，字体减小10%（1.6rem），右对齐 */
+    .intro-chinese {
+      font-size: 1.6rem;
+      text-align: right;
+      font-weight: 300;
+      margin-top: 2cm;
+    }
+    .intro-chinese .line {
+      margin-bottom: 0.5cm;
+    }
+    /* ---------------- Since 2024 区域 ---------------- */
+    .since-section {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .since-text {
+      font-size: 3rem;
+      font-weight: bold;
+      position: relative;
+      z-index: 2;
+    }
+    .since-animate {
+      animation: minimalFade 3s infinite;
+    }
+    @keyframes minimalFade {
+      0% { opacity: 1; transform: translateY(0); }
+      50% { opacity: 0.7; transform: translateY(-2.4px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .since-text::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('noise.png');
+      opacity: 0.3;
+      pointer-events: none;
+      z-index: -1;
+      animation: noise 0.2s infinite steps(2);
+    }
+    @keyframes noise {
+      0% { transform: translate(0, 0); }
+      10% { transform: translate(-1px, -1px); }
+      20% { transform: translate(-2px, 0); }
+      30% { transform: translate(1px, 1px); }
+      40% { transform: translate(2px, -1px); }
+      50% { transform: translate(-1px, 2px); }
+      60% { transform: translate(0, -2px); }
+      70% { transform: translate(1px, 0); }
+      80% { transform: translate(-1px, 1px); }
+      90% { transform: translate(0, 2px); }
+      100% { transform: translate(0, 0); }
+    }
+    /* ---------------- Project Reviews 区域 ---------------- */
+    .project-reviews {
+      padding: 80px 20px;
+      text-align: left;
+    }
+    .title-container h2 {
+      font-size: 1.6rem;
+      margin: 0;
+    }
+    .title-container {
+      margin-bottom: 2cm;
+    }
+    .project-images {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+    .project-item {
+      width: 300px;
+      height: 425px;
+      overflow: hidden;
+      position: relative;
+    }
+    .project-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .video-item {
+      cursor: pointer;
+    }
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 3rem;
+      color: rgba(255,255,255,0.8);
+      pointer-events: none;
+    }
+    /* ---------------- Spacer ---------------- */
+    .spacer {
+      margin-top: 2cm;
+    }
+    /* ---------------- 公共滑动区域 ---------------- */
+    .photo-slider {
+      position: relative;
+      margin: 0 auto;
+      max-width: 1200px;
+      padding: 20px 0;
+    }
+    .slider-container {
+      display: flex;
+      overflow-x: auto;
+      transition: transform 0.3s;
+      scroll-behavior: smooth;
+    }
+    .slider-container::-webkit-scrollbar {
+      display: none;
+    }
+    .slide {
+      margin-right: 20px;
+      flex-shrink: 0;
+    }
+    /* 竖版 slides：尺寸 250px x 400px，总宽约 270px */
+    .vertical-slide {
+      width: 250px;
+      height: 400px;
+    }
+    /* 横版 slides：尺寸 400px x 250px，总宽约 420px */
+    .horizontal-slide {
+      width: 400px;
+      height: 250px;
+    }
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.5rem;
+      color: #fff;
+      cursor: pointer;
+      user-select: none;
+      opacity: 0.7;
+      z-index: 10;
+      padding: 0.3rem;
+    }
+    .arrow:hover {
+      opacity: 1;
+    }
+    .arrow.left {
+      left: 5px;
+    }
+    .arrow.right {
+      right: 5px;
+    }
+    /* ---------------- 品牌宣言区域 ---------------- */
+    .brand-message {
+      margin-top: 6cm;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .brand-message p {
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.6;
+      text-align: justify;
+    }
+    .brand-message p.english {
+      font-size: 1.2rem;
+      margin-bottom: 1cm; /* 设置3cm间隔 */
+    }
+    .brand-message p.chinese {
+      font-size: 1.1rem;
+      margin-bottom: 0;
+    }
+    /* ---------------- 加载中动画区域 ---------------- */
+    .loading-section {
+      margin-top: 3cm;
+      margin-bottom: 3cm;
+      text-align: center;
+      position: relative;
+    }
+    #loadingCanvas {
+      width: 100%;
+      max-width: 800px;
+      height: 200px;
+      background: transparent;
+      display: block;
+      margin: 0 auto;
+    }
+    /* ---------------- 社交/联系方式区域 ---------------- */
+    .social-contact {
+      margin-top: 6cm;
+      margin-bottom: 4cm;
+      text-align: center;
+    }
+    .social-contact .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 4rem; /* 设置间距为 4rem */
+    }
+    .social-contact .social-logo {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- ============ 上部：关于 Blank Joy – 無樂 ============ -->
+  <!-- 顶部区域 -->
+  <div class="top-section">
+    <img src="logo.png" alt="Blankjoy Logo" class="logo">
+    <div class="about">about: Blank Joy– 無樂</div>
+  </div>
+  
+  <!-- 介绍区域 -->
+  <div class="intro-section">
+    <div class="intro-english">
+      <div class="line1">Electronic Music Is More Than Sound</div>
+      <div class="line2">— It’s An Unbounded Exploration Of Perception, Vision, And Thought.</div>
+    </div>
+    <div class="intro-chinese">
+      <div class="line">电子的音樂不僅僅是聲音&nbsp;&nbsp;&nbsp;&nbsp;</div>
+      <div class="line">— 它是一場無限漫遊於感知、視覺與思維之境的探險。</div>
+    </div>
+  </div>
+  
+  <!-- Since 2024 区域 -->
+  <div class="since-section">
+    <div class="since-text"></div>
+  </div>
+  
+  <!-- 打字机效果脚本（循环重复） -->
+  <script>
+    window.onload = function() {
+      const sinceElem = document.querySelector('.since-text');
+      const text = "Since 2024";
+      let index = 0;
+      
+      function typeEffect() {
+        sinceElem.innerHTML = "";
+        index = 0;
+        sinceElem.classList.remove("since-animate");
+        
+        function typeChar() {
+          if (index < text.length) {
+            sinceElem.innerHTML += text.charAt(index);
+            index++;
+            setTimeout(typeChar, 150);
+          } else {
+            sinceElem.classList.add("since-animate");
+            setTimeout(typeEffect, 2000);
+          }
+        }
+        typeChar();
+      }
+      typeEffect();
+    };
+  </script>
+  
+  <!-- ============ 下部：Project Reviews 及滑动区域 ============ -->
+  <!-- Project Reviews 区域 -->
+  <section class="project-reviews">
+    <div class="title-container">
+      <h2>Project Reviews</h2>
+    </div>
+    <div class="project-images">
+      <div class="project-item">
+         <img src="image1.jpg" alt="Review Image">
+      </div>
+      <div class="project-item video-item" id="videoItem">
+         <img src="image2.jpg" alt="Review Image">
+         <div class="play-button">&#9658;</div>
+      </div>
+      <div class="project-item">
+         <img src="image3.jpg" alt="Review Image">
+      </div>
+    </div>
+  </section>
+  
+  <!-- Spacer：空2cm -->
+  <div class="spacer"></div>
+  
+  <!-- 第一滑动区：竖版图片 (live1 ～ live10) -->
+  <section class="photo-slider vertical-slider">
+    <div class="slider-container" data-slide-width="270">
+      <div class="slide vertical-slide"><img src="live1.jpg" alt="Live Photo 1"></div>
+      <div class="slide vertical-slide"><img src="live2.jpg" alt="Live Photo 2"></div>
+      <div class="slide vertical-slide"><img src="live3.jpg" alt="Live Photo 3"></div>
+      <div class="slide vertical-slide"><img src="live4.jpg" alt="Live Photo 4"></div>
+      <div class="slide vertical-slide"><img src="live5.jpg" alt="Live Photo 5"></div>
+      <div class="slide vertical-slide"><img src="live6.jpg" alt="Live Photo 6"></div>
+      <div class="slide vertical-slide"><img src="live7.jpg" alt="Live Photo 7"></div>
+      <div class="slide vertical-slide"><img src="live8.jpg" alt="Live Photo 8"></div>
+      <div class="slide vertical-slide"><img src="live9.jpg" alt="Live Photo 9"></div>
+      <div class="slide vertical-slide"><img src="live10.jpg" alt="Live Photo 10"></div>
+    </div>
+    <div class="arrow left">&#10094;</div>
+    <div class="arrow right">&#10095;</div>
+  </section>
+  
+  <!-- 第二滑动区：横版图片 (live11 ～ live18) -->
+  <section class="photo-slider horizontal-slider">
+    <div class="slider-container" data-slide-width="420">
+      <div class="slide horizontal-slide"><img src="live11.jpg" alt="Live Photo 11"></div>
+      <div class="slide horizontal-slide"><img src="live12.jpg" alt="Live Photo 12"></div>
+      <div class="slide horizontal-slide"><img src="live13.jpg" alt="Live Photo 13"></div>
+      <div class="slide horizontal-slide"><img src="live14.jpg" alt="Live Photo 14"></div>
+      <div class="slide horizontal-slide"><img src="live15.jpg" alt="Live Photo 15"></div>
+      <div class="slide horizontal-slide"><img src="live16.jpg" alt="Live Photo 16"></div>
+      <div class="slide horizontal-slide"><img src="live17.jpg" alt="Live Photo 17"></div>
+      <div class="slide horizontal-slide"><img src="live18.jpg" alt="Live Photo 18"></div>
+    </div>
+    <div class="arrow left">&#10094;</div>
+    <div class="arrow right">&#10095;</div>
+  </section>
+  
+  <!-- 第三滑动区：横版图片 (live19 ～ live25) -->
+  <section class="photo-slider horizontal-slider">
+    <div class="slider-container" data-slide-width="420">
+      <div class="slide horizontal-slide"><img src="live19.jpg" alt="Live Photo 19"></div>
+      <div class="slide horizontal-slide"><img src="live20.jpg" alt="Live Photo 20"></div>
+      <div class="slide horizontal-slide"><img src="live21.jpg" alt="Live Photo 21"></div>
+      <div class="slide horizontal-slide"><img src="live22.jpg" alt="Live Photo 22"></div>
+      <div class="slide horizontal-slide"><img src="live23.jpg" alt="Live Photo 23"></div>
+      <div class="slide horizontal-slide"><img src="live24.jpg" alt="Live Photo 24"></div>
+      <div class="slide horizontal-slide"><img src="live25.jpg" alt="Live Photo 25"></div>
+    </div>
+    <div class="arrow left">&#10094;</div>
+    <div class="arrow right">&#10095;</div>
+  </section>
+  
+  <!-- ---------------- 加载中动画区域 ---------------- -->
+  <section class="loading-section">
+    <canvas id="loadingCanvas"></canvas>
+  </section>
+  
+  <!-- ---------------- 品牌宣言区域 ---------------- -->
+  <section class="brand-message">
+    <p class="english">
+      Blank Joy is an music promoter dedicated to restoring music to its pure, authentic form. With immersive experiences, genuine connections, and creative collaborations at its core, we curate diverse live music events that feel like starlit journeys. Every performance connects talented artists from around the world and builds a heartfelt bridge between creators and audiences, inviting everyone to experience the deep emotion and soul of music.
+    </p>
+    <p class="chinese">
+      Blank Joy– 無樂 是一個致力於將音樂恢復到其本質的音樂組織者。我們與來自世界各地的才華橫溢的藝術家策劃多元化的現場音樂活動、沉浸式體驗，搭建起創作者與觀眾之間的真情橋樑，邀請每個人感受音樂深沉的情感與靈魂。
+    </p>
+  </section>
+  
+  <!-- ---------------- 社交/联系方式区域 ---------------- -->
+  <section class="social-contact">
+    <div class="social-icons">
+      <a href="https://www.instagram.com/_blankjoy?igsh=MXRvb3NtbDN3a3RjZQ%3D%3D&utm_source=qr" target="_blank">
+        <img src="instagram.png" alt="Instagram Logo" class="social-logo">
+      </a>
+      <a href="mailto:info@blankjoy.com">
+        <img src="email.png" alt="Email Logo" class="social-logo">
+      </a>
+    </div>
+  </section>
+  
+  <script>
+    // 点击 videoItem 播放视频
+    document.getElementById('videoItem').addEventListener('click', function() {
+      this.innerHTML = '<video controls autoplay style="width:100%;height:100%;">' +
+                       '<source src="video.mp4" type="video/mp4">' +
+                       'Your browser does not support the video tag.' +
+                       '</video>';
+    });
+    
+    // 滑动区域功能
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.photo-slider').forEach(function(sliderSection) {
+        const slider = sliderSection.querySelector('.slider-container');
+        const leftArrow = sliderSection.querySelector('.arrow.left');
+        const rightArrow = sliderSection.querySelector('.arrow.right');
+        const slideWidth = parseInt(slider.getAttribute('data-slide-width'), 10);
+        
+        leftArrow.addEventListener('click', () => {
+          slider.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+        });
+        rightArrow.addEventListener('click', () => {
+          slider.scrollBy({ left: slideWidth, behavior: 'smooth' });
+        });
+        
+        // 鼠标拖拽支持
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        slider.addEventListener('mousedown', (e) => {
+          isDown = true;
+          startX = e.pageX - slider.offsetLeft;
+          scrollLeft = slider.scrollLeft;
+        });
+        slider.addEventListener('mouseleave', () => isDown = false);
+        slider.addEventListener('mouseup', () => isDown = false);
+        slider.addEventListener('mousemove', (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - slider.offsetLeft;
+          const walk = (x - startX) * 2;
+          slider.scrollLeft = scrollLeft - walk;
+        });
+        
+        // 触摸滑动支持
+        let touchStartX = 0;
+        let touchEndX = 0;
+        slider.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        });
+        slider.addEventListener('touchend', (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          if (touchEndX < touchStartX - 50) {
+            slider.scrollBy({ left: slideWidth, behavior: 'smooth' });
+          }
+          if (touchEndX > touchStartX + 50) {
+            slider.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+          }
+        });
+      });
+    });
+    
+    // ---------------- 加载中粒子动画 ----------------
+    (function() {
+      const canvas = document.getElementById("loadingCanvas");
+      const ctx = canvas.getContext("2d");
+      // 设置 canvas 尺寸
+      canvas.width = 800;
+      canvas.height = 200;
+      
+      // 使用离屏 canvas 绘制文本“2025 Loading more...”
+      const offCanvas = document.createElement("canvas");
+      offCanvas.width = canvas.width;
+      offCanvas.height = canvas.height;
+      const offCtx = offCanvas.getContext("2d");
+      offCtx.fillStyle = "#fff";
+      offCtx.font = "bold 50px sans-serif";
+      offCtx.textAlign = "center";
+      offCtx.textBaseline = "middle";
+      offCtx.fillText("2025 Loading more...", offCanvas.width / 2, offCanvas.height / 2);
+      const imageData = offCtx.getImageData(0, 0, offCanvas.width, offCanvas.height);
+      
+      const particles = [];
+      const gap = 4;
+      for (let y = 0; y < canvas.height; y += gap) {
+        for (let x = 0; x < canvas.width; x += gap) {
+          const index = (y * canvas.width + x) * 4;
+          if (imageData.data[index + 3] > 128) {
+            const destination = { x: x, y: y };
+            const startX = Math.random() * canvas.width;
+            const startY = canvas.height + Math.random() * 100;
+            particles.push(new Particle(startX, startY, destination));
+          }
+        }
+      }
+      
+      function Particle(x, y, destination) {
+        this.x = x;
+        this.y = y;
+        this.destination = destination;
+        this.vx = 0;
+        this.vy = 0;
+        this.acceleration = 0.05;
+        this.friction = 0.90;
+        this.radius = 2;
+      }
+      
+      Particle.prototype.update = function() {
+        const dx = this.destination.x - this.x;
+        const dy = this.destination.y - this.y;
+        this.vx += dx * this.acceleration;
+        this.vy += dy * this.acceleration;
+        this.vx *= this.friction;
+        this.vy *= this.friction;
+        this.x += this.vx;
+        this.y += this.vy;
+      };
+      
+      Particle.prototype.draw = function(ctx) {
+        ctx.fillStyle = "#fff";
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fill();
+      };
+      
+      function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < particles.length; i++) {
+          particles[i].update();
+          particles[i].draw(ctx);
+        }
+        requestAnimationFrame(animateParticles);
+      }
+      
+      animateParticles();
+      
+      // 每10秒重置粒子初始位置，实现循环播放效果
+      setInterval(function(){
+        particles.forEach(function(p){
+          p.x = Math.random() * canvas.width;
+          p.y = canvas.height + Math.random() * 100;
+          p.vx = 0;
+          p.vy = 0;
+        });
+      }, 10000);
+    })();
+  </script>
+</body>
+</html>
