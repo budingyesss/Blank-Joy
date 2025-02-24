@@ -13,7 +13,7 @@
       color: #fff;
       overflow-x: hidden;
     }
-    /* ---------------- 顶部区域（关于 Blank Joy – 無樂） ---------------- */
+    /* ---------------- 顶部区域（关于 Blank Joy | 無樂） ---------------- */
     .top-section {
       height: 100vh;
       display: flex;
@@ -21,10 +21,12 @@
       justify-content: center;
       align-items: center;
     }
+    /* 增大Logo尺寸 */
     .logo {
-      width: 150px;
-      margin-bottom: 6cm; /* 由6cm改为6cm */
+      width: 200px;
+      margin-bottom: 3cm; /* 由6cm改为3cm */
     }
+    /* 更新 about 部分文字 */
     .about {
       font-size: 2rem;
       letter-spacing: 2px;
@@ -43,11 +45,11 @@
       font-size: 2.5rem;
       font-weight: 300;
     }
-    /* 英文分两行，第二行与第一行间隔1.5cm */
+    /* 英文分两行，间隔1.5cm */
     .intro-english .line2 {
       margin-top: 1.5cm;
     }
-    /* 中文介绍：切分为两行，字体减小10%（1.6rem），右对齐 */
+    /* 中文介绍：字体1.6rem，右对齐 */
     .intro-chinese {
       font-size: 1.6rem;
       text-align: right;
@@ -169,12 +171,12 @@
       margin-right: 20px;
       flex-shrink: 0;
     }
-    /* 竖版 slides：尺寸 250px x 400px，总宽约 270px */
+    /* 竖版 slides：尺寸 250px x 400px，总宽约270px */
     .vertical-slide {
       width: 250px;
       height: 400px;
     }
-    /* 横版 slides：尺寸 400px x 250px，总宽约 420px */
+    /* 横版 slides：尺寸 400px x 250px，总宽约420px */
     .horizontal-slide {
       width: 400px;
       height: 250px;
@@ -214,23 +216,25 @@
     .brand-message p {
       max-width: 800px;
       margin: 0 auto 1.5rem;
-      line-height: 1.6;
+      line-height: 2;
       text-align: justify;
     }
     .brand-message p.english {
       font-size: 1.2rem;
-      margin-bottom: 1cm; /* 设置3cm间隔 */
     }
     .brand-message p.chinese {
-      font-size: 1.1rem;
-      margin-bottom: 0;
+      font-size: 1.2rem;
     }
-    /* ---------------- 加载中动画区域 ---------------- */
+    /* ---------------- 加载中粒子动画区域 ---------------- */
     .loading-section {
       margin-top: 3cm;
       margin-bottom: 3cm;
       text-align: center;
       position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     #loadingCanvas {
       width: 100%;
@@ -243,13 +247,12 @@
     /* ---------------- 社交/联系方式区域 ---------------- */
     .social-contact {
       margin-top: 6cm;
-      margin-bottom: 4cm;
       text-align: center;
     }
     .social-contact .social-icons {
       display: flex;
       justify-content: center;
-      gap: 4rem; /* 设置间距为 4rem */
+      gap: 25rem;
     }
     .social-contact .social-logo {
       width: 50px;
@@ -257,14 +260,18 @@
       object-fit: contain;
       cursor: pointer;
     }
+    /* 底部额外空白区域 */
+    .spacer-bottom {
+      margin-top: 3cm;
+    }
   </style>
 </head>
 <body>
-  <!-- ============ 上部：关于 Blank Joy – 無樂 ============ -->
+  <!-- ============ 上部：关于 Blank Joy | 無樂 ============ -->
   <!-- 顶部区域 -->
   <div class="top-section">
-    <img src="logo.png" alt="Blankjoy Logo" class="logo">
-    <div class="about">about: Blank Joy ｜ 無樂</div>
+    <img src="logo.png" alt="Blank Joy Logo" class="logo">
+    <div class="about">Blank Joy | 無樂</div>
   </div>
   
   <!-- 介绍区域 -->
@@ -274,7 +281,7 @@
       <div class="line2">— It’s An Unbounded Exploration Of Perception, Vision, And Thought.</div>
     </div>
     <div class="intro-chinese">
-      <div class="line">电子音樂不僅僅是聲音&nbsp;&nbsp;&nbsp;&nbsp;</div>
+      <div class="line">电子的音樂不僅僅是聲音&nbsp;&nbsp;&nbsp;&nbsp;</div>
       <div class="line">— 它是一場無限漫遊於感知、視覺與思維之境的探險。</div>
     </div>
   </div>
@@ -384,7 +391,7 @@
     <div class="arrow right">&#10095;</div>
   </section>
   
-  <!-- ---------------- 加载中动画区域 ---------------- -->
+  <!-- ---------------- 加载中粒子动画区域（独立页面布局） ---------------- -->
   <section class="loading-section">
     <canvas id="loadingCanvas"></canvas>
   </section>
@@ -392,24 +399,31 @@
   <!-- ---------------- 品牌宣言区域 ---------------- -->
   <section class="brand-message">
     <p class="english">
-      Blank Joy is an music promoter dedicated to restoring music to its pure, authentic form. With immersive experiences, genuine connections, and creative collaborations at its core, we curate diverse live music events that feel like starlit journeys. Every performance connects talented artists from around the world and builds a heartfelt bridge between creators and audiences, inviting everyone to experience the deep emotion and soul of music.
+      Blank Joy is an music promoter dedicated to restoring music to its purest essence.
+      We curate diverse live music experiences with talented artists from around the world, creating immersive events that forge genuine connections between creators and audiences.
+      Through these deeply engaging experiences, we invite everyone to feel the profound emotions of music and resonate with its soul.
     </p>
     <p class="chinese">
-      Blank Joy ｜ 無樂 是一個致力於將音樂恢復到其本質的音樂組織者。我們希望與來自世界各地的才華橫溢的藝術家策劃多元化的現場音樂活動、沉浸式體驗，搭建起創作者與觀眾之間的真情橋樑，邀請每個人感受音樂深沉的情感與靈魂。
+      Blank Joy | 無樂 是一個致力於將音樂回歸本質的音樂策劃推廣者。
+      我們與來自世界各地的才華藝術家合作，策劃多元化的現場音樂體驗，透過沉浸式演出搭建創作者與觀眾之間的真摯橋樑，
+      邀請每個人感受音樂深層的情感與靈魂共鳴。
     </p>
   </section>
   
   <!-- ---------------- 社交/联系方式区域 ---------------- -->
   <section class="social-contact">
     <div class="social-icons">
-      <a href="https://www.instagram.com/_blankjoy?igsh=MXRvb3NtbDN3a3RjZQ%3D%3D&utm_source=qr" target="_blank">
+      <a href="https://www.instagram.com" target="_blank">
         <img src="instagram.png" alt="Instagram Logo" class="social-logo">
       </a>
-      <a href="mailto:info@blankjoy.com">
+      <a href="mailto:someone@example.com">
         <img src="email.png" alt="Email Logo" class="social-logo">
       </a>
     </div>
   </section>
+  
+  <!-- 底部额外空白区域 -->
+  <div class="spacer-bottom"></div>
   
   <script>
     // 点击 videoItem 播放视频
@@ -499,6 +513,7 @@
           const index = (y * canvas.width + x) * 4;
           if (imageData.data[index + 3] > 128) {
             const destination = { x: x, y: y };
+            // 初始位置随机在 canvas 底部以外
             const startX = Math.random() * canvas.width;
             const startY = canvas.height + Math.random() * 100;
             particles.push(new Particle(startX, startY, destination));
@@ -546,11 +561,11 @@
       
       animateParticles();
       
-      // 每8秒重置粒子初始位置，实现循环播放效果
+      // 每10秒重置粒子初始位置，实现循环播放效果
       setInterval(function(){
         particles.forEach(function(p){
           p.x = Math.random() * canvas.width;
-          p.y = canvas.height + Math.random() * 80;
+          p.y = canvas.height + Math.random() * 100;
           p.vx = 0;
           p.vy = 0;
         });
