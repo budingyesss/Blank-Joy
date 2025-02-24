@@ -23,7 +23,7 @@
     }
     .logo {
       width: 150px;
-      margin-bottom: 3cm; /* 由6cm改为3cm */
+      margin-bottom: 6cm; /* 由6cm改为6cm */
     }
     .about {
       font-size: 2rem;
@@ -264,7 +264,7 @@
   <!-- 顶部区域 -->
   <div class="top-section">
     <img src="logo.png" alt="Blankjoy Logo" class="logo">
-    <div class="about">about: Blank Joy– 無樂</div>
+    <div class="about">about: Blank Joy ｜ 無樂</div>
   </div>
   
   <!-- 介绍区域 -->
@@ -395,7 +395,7 @@
       Blank Joy is an music promoter dedicated to restoring music to its pure, authentic form. With immersive experiences, genuine connections, and creative collaborations at its core, we curate diverse live music events that feel like starlit journeys. Every performance connects talented artists from around the world and builds a heartfelt bridge between creators and audiences, inviting everyone to experience the deep emotion and soul of music.
     </p>
     <p class="chinese">
-      Blank Joy– 無樂 是一個致力於將音樂恢復到其本質的音樂組織者。我們與來自世界各地的才華橫溢的藝術家策劃多元化的現場音樂活動、沉浸式體驗，搭建起創作者與觀眾之間的真情橋樑，邀請每個人感受音樂深沉的情感與靈魂。
+      Blank Joy ｜ 無樂 是一個致力於將音樂恢復到其本質的音樂組織者。我們希望與來自世界各地的才華橫溢的藝術家策劃多元化的現場音樂活動、沉浸式體驗，搭建起創作者與觀眾之間的真情橋樑，邀請每個人感受音樂深沉的情感與靈魂。
     </p>
   </section>
   
@@ -546,11 +546,11 @@
       
       animateParticles();
       
-      // 每10秒重置粒子初始位置，实现循环播放效果
+      // 每8秒重置粒子初始位置，实现循环播放效果
       setInterval(function(){
         particles.forEach(function(p){
           p.x = Math.random() * canvas.width;
-          p.y = canvas.height + Math.random() * 100;
+          p.y = canvas.height + Math.random() * 80;
           p.vx = 0;
           p.vy = 0;
         });
