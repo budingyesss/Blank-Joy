@@ -21,7 +21,7 @@
       justify-content: center;
       align-items: center;
     }
-    /* Logo区域使用原格式 */
+    /* Logo区域保持原格式，但尺寸增大 */
     .logo {
       width: 200px;
       margin-bottom: 3cm;
@@ -45,11 +45,9 @@
       font-size: 2.5rem;
       font-weight: 300;
     }
-    /* 英文分两行，间隔1.5cm */
     .intro-english .line2 {
       margin-top: 1.5cm;
     }
-    /* 中文介绍：字体1.6rem，右对齐 */
     .intro-chinese {
       font-size: 1.6rem;
       text-align: right;
@@ -88,7 +86,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: url('noise.webp'); /* 可将噪点图片也更新为WebP */
+      background: url('noise.webp'); /* 噪点图片使用 WebP 格式 */
       opacity: 0.3;
       pointer-events: none;
       z-index: -1;
@@ -182,7 +180,6 @@
       width: 400px;
       height: 250px;
     }
-    /* 三个滑动区的图片更新为 WebP 格式 */
     .slide img {
       width: 100%;
       height: 100%;
@@ -217,15 +214,17 @@
     }
     .brand-message p {
       max-width: 800px;
-      margin: 0 auto 1.5rem;
+      margin: 0 auto;
       line-height: 1.6;
-      text-align: justify;
+      text-align: justify; /* 两端对齐 */
     }
     .brand-message p.english {
       font-size: 1.2rem;
+      margin-bottom: 2.5rem; /* 增大英文与中文之间的间距 */
     }
     .brand-message p.chinese {
       font-size: 1.1rem;
+      margin-top: 2.5rem; /* 增大与英文的间距 */
     }
     /* ---------------- 加载中粒子动画区域（独立页面布局） ---------------- */
     .loading-section {
@@ -262,7 +261,7 @@
       object-fit: contain;
       cursor: pointer;
     }
-    /* 底部额外空白区域 */
+    /* ---------------- 底部额外空白区域 ---------------- */
     .spacer-bottom {
       margin-top: 3cm;
     }
@@ -365,14 +364,14 @@
   <!-- 第二滑动区：横版图片 (live11 ～ live18) 使用 WebP -->
   <section class="photo-slider horizontal-slider">
     <div class="slider-container" data-slide-width="420">
-      <div class="slide horizontal-slide"><img src="live11.webp"
-      <div class="slide horizontal-slide"><img src="live12.webp"
-      <div class="slide horizontal-slide"><img src="live13.webp"
-      <div class="slide horizontal-slide"><img src="live14.webp"
-      <div class="slide horizontal-slide"><img src="live15.webp"
-      <div class="slide horizontal-slide"><img src="live16.webp"
-      <div class="slide horizontal-slide"><img src="live17.webp"
-      <div class="slide horizontal-slide"><img src="live18.webp"
+      <div class="slide horizontal-slide"><img src="live11.webp" alt="Live Photo 11" loading="lazy"></div>
+      <div class="slide horizontal-slide"><img src="live12.webp" alt="Live Photo 12" loading="lazy"></div>
+      <div class="slide horizontal-slide"><img src="live13.webp" alt="Live Photo 13" loading="lazy"></div>
+      <div class="slide horizontal-slide"><img src="live14.webp" alt="Live Photo 14" loading="lazy"></div>
+      <div class="slide horizontal-slide"><img src="live15.webp" alt="Live Photo 15" loading="lazy"></div>
+      <div class="slide horizontal-slide"><img src="live16.webp" alt="Live Photo 16" loading="lazy"></div>
+      <div class="slide horizontal-slide"><img src="live17.webp" alt="Live Photo 17" loading="lazy"></div>
+      <div class="slide horizontal-slide"><img src="live18.webp" alt="Live Photo 18" loading="lazy"></div>
     </div>
     <div class="arrow left">&#10094;</div>
     <div class="arrow right">&#10095;</div>
@@ -381,13 +380,13 @@
   <!-- 第三滑动区：横版图片 (live19 ～ live25) 使用 WebP -->
   <section class="photo-slider horizontal-slider">
     <div class="slider-container" data-slide-width="420">
-      <div class="slide horizontal-slide"><img src="live19.webp"
-      <div class="slide horizontal-slide"><img src="live20.webp"
-      <div class="slide horizontal-slide"><img src="live21.webp"
-      <div class="slide horizontal-slide"><img src="live22.webp"
-      <div class="slide horizontal-slide"><img src="live23.webp"
-      <div class="slide horizontal-slide"><img src="live24.webp"
-      <div class="slide horizontal-slide"><img src="live25.webp"
+      <div class="slide horizontal-slide"><img src="live19.webp" alt="Live Photo 19" loading="lazy"></div>
+      <div class="slide horizontal-slide"><img src="live20.webp" alt="Live Photo 20" loading="lazy"></div>
+      <div class="slide horizontal-slide"><img src="live21.webp" alt="Live Photo 21" loading="lazy"></div>
+      <div class="slide horizontal-slide"><img src="live22.webp" alt="Live Photo 22" loading="lazy"></div>
+      <div class="slide horizontal-slide"><img src="live23.webp" alt="Live Photo 23" loading="lazy"></div>
+      <div class="slide horizontal-slide"><img src="live24.webp" alt="Live Photo 24" loading="lazy"></div>
+      <div class="slide horizontal-slide"><img src="live25.webp" alt="Live Photo 25" loading="lazy"></div>
     </div>
     <div class="arrow left">&#10094;</div>
     <div class="arrow right">&#10095;</div>
@@ -401,13 +400,12 @@
   <!-- ---------------- 品牌宣言区域 ---------------- -->
   <section class="brand-message">
     <p class="english">
-      Blank Joy is a music Promoter dedicated to restoring music to its purest essence.
+      Blank Joy is a music collective dedicated to restoring music to its purest essence.
       We curate diverse live music experiences with talented artists from around the world, creating immersive events that forge genuine connections between creators and audiences.
       Through these deeply engaging experiences, we invite everyone to feel the profound emotions of music and resonate with its soul.
     </p>
-    </p>
     <p class="chinese">
-      Blank Joy | 無樂 是一個致力於將音樂回歸本質的音樂策劃推廣者。
+      Blank Joy | 無樂 是一個致力於將音樂回歸本質的音樂策劃團體。
       我們與來自世界各地的才華藝術家合作，策劃多元化的現場音樂體驗，透過沉浸式演出搭建創作者與觀眾之間的真摯橋樑，
       邀請每個人感受音樂深層的情感與靈魂共鳴。
     </p>
@@ -516,7 +514,6 @@
           const index = (y * canvas.width + x) * 4;
           if (imageData.data[index + 3] > 128) {
             const destination = { x: x, y: y };
-            // 初始位置随机在 canvas 底部以外
             const startX = Math.random() * canvas.width;
             const startY = canvas.height + Math.random() * 100;
             particles.push(new Particle(startX, startY, destination));
