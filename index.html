@@ -24,7 +24,7 @@
     /* 增大Logo尺寸 */
     .logo {
       width: 200px;
-      margin-bottom: 3cm; /* 由6cm改为3cm */
+      margin-bottom: 3cm;
     }
     /* 更新 about 部分文字 */
     .about {
@@ -88,7 +88,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: url('noise.png');
+      background: url('noise.webp');
       opacity: 0.3;
       pointer-events: none;
       z-index: -1;
@@ -216,16 +216,16 @@
     .brand-message p {
       max-width: 800px;
       margin: 0 auto 1.5rem;
-      line-height: 2;
+      line-height: 1.6;
       text-align: justify;
     }
     .brand-message p.english {
       font-size: 1.2rem;
     }
     .brand-message p.chinese {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
-    /* ---------------- 加载中粒子动画区域 ---------------- */
+    /* ---------------- 加载中粒子动画区域（独立页面布局） ---------------- */
     .loading-section {
       margin-top: 3cm;
       margin-bottom: 3cm;
@@ -252,7 +252,7 @@
     .social-contact .social-icons {
       display: flex;
       justify-content: center;
-      gap: 25rem;
+      gap: 9rem;
     }
     .social-contact .social-logo {
       width: 50px;
@@ -270,8 +270,8 @@
   <!-- ============ 上部：关于 Blank Joy | 無樂 ============ -->
   <!-- 顶部区域 -->
   <div class="top-section">
-    <img src="logo.png" alt="Blank Joy Logo" class="logo">
-    <div class="about">about: Blank Joy｜無樂 </div>
+    <img src="logo.webp" alt="Blank Joy Logo" class="logo" loading="lazy">
+    <div class="about">Blank Joy | 無樂</div>
   </div>
   
   <!-- 介绍区域 -->
@@ -282,7 +282,7 @@
     </div>
     <div class="intro-chinese">
       <div class="line">电子的音樂不僅僅是聲音&nbsp;&nbsp;&nbsp;&nbsp;</div>
-      <div class="line">— 它是一場無限漫遊於感知、視覺與思維之境的探險。</div>
+      <div class="line">—— 它是一場無限漫遊於感知、視覺與思維之境的探險。</div>
     </div>
   </div>
   
@@ -327,14 +327,14 @@
     </div>
     <div class="project-images">
       <div class="project-item">
-         <img src="image1.jpg" alt="Review Image">
+         <img src="image1.webp" alt="Review Image" loading="lazy">
       </div>
       <div class="project-item video-item" id="videoItem">
-         <img src="image2.jpg" alt="Review Image">
+         <img src="image2.webp" alt="Review Image" loading="lazy">
          <div class="play-button">&#9658;</div>
       </div>
       <div class="project-item">
-         <img src="image3.jpg" alt="Review Image">
+         <img src="image3.webp" alt="Review Image" loading="lazy">
       </div>
     </div>
   </section>
@@ -345,16 +345,16 @@
   <!-- 第一滑动区：竖版图片 (live1 ～ live10) -->
   <section class="photo-slider vertical-slider">
     <div class="slider-container" data-slide-width="270">
-      <div class="slide vertical-slide"><img src="live1.jpg" alt="Live Photo 1"></div>
-      <div class="slide vertical-slide"><img src="live2.jpg" alt="Live Photo 2"></div>
-      <div class="slide vertical-slide"><img src="live3.jpg" alt="Live Photo 3"></div>
-      <div class="slide vertical-slide"><img src="live4.jpg" alt="Live Photo 4"></div>
-      <div class="slide vertical-slide"><img src="live5.jpg" alt="Live Photo 5"></div>
-      <div class="slide vertical-slide"><img src="live6.jpg" alt="Live Photo 6"></div>
-      <div class="slide vertical-slide"><img src="live7.jpg" alt="Live Photo 7"></div>
-      <div class="slide vertical-slide"><img src="live8.jpg" alt="Live Photo 8"></div>
-      <div class="slide vertical-slide"><img src="live9.jpg" alt="Live Photo 9"></div>
-      <div class="slide vertical-slide"><img src="live10.jpg" alt="Live Photo 10"></div>
+      <div class="slide vertical-slide"><img src="live1.webp" alt="Live Photo 1" loading="lazy"></div>
+      <div class="slide vertical-slide"><img src="live2.webp" alt="Live Photo 2" loading="lazy"></div>
+      <div class="slide vertical-slide"><img src="live3.webp" alt="Live Photo 3" loading="lazy"></div>
+      <div class="slide vertical-slide"><img src="live4.webp" alt="Live Photo 4" loading="lazy"></div>
+      <div class="slide vertical-slide"><img src="live5.webp" alt="Live Photo 5" loading="lazy"></div>
+      <div class="slide vertical-slide"><img src="live6.webp" alt="Live Photo 6" loading="lazy"></div>
+      <div class="slide vertical-slide"><img src="live7.webp" alt="Live Photo 7" loading="lazy"></div>
+      <div class="slide vertical-slide"><img src="live8.webp" alt="Live Photo 8" loading="lazy"></div>
+      <div class="slide vertical-slide"><img src="live9.webp" alt="Live Photo 9" loading="lazy"></div>
+      <div class="slide vertical-slide"><img src="live10.webp" alt="Live Photo 10" loading="lazy"></div>
     </div>
     <div class="arrow left">&#10094;</div>
     <div class="arrow right">&#10095;</div>
@@ -363,14 +363,14 @@
   <!-- 第二滑动区：横版图片 (live11 ～ live18) -->
   <section class="photo-slider horizontal-slider">
     <div class="slider-container" data-slide-width="420">
-      <div class="slide horizontal-slide"><img src="live11.jpg" alt="Live Photo 11"></div>
-      <div class="slide horizontal-slide"><img src="live12.jpg" alt="Live Photo 12"></div>
-      <div class="slide horizontal-slide"><img src="live13.jpg" alt="Live Photo 13"></div>
-      <div class="slide horizontal-slide"><img src="live14.jpg" alt="Live Photo 14"></div>
-      <div class="slide horizontal-slide"><img src="live15.jpg" alt="Live Photo 15"></div>
-      <div class="slide horizontal-slide"><img src="live16.jpg" alt="Live Photo 16"></div>
-      <div class="slide horizontal-slide"><img src="live17.jpg" alt="Live Photo 17"></div>
-      <div class="slide horizontal-slide"><img src="live18.jpg" alt="Live Photo 18"></div>
+      <div class="slide horizontal-slide"><img src="live11.webp" alt="Live Photo 11" loading="lazy"></div>
+      <div class="slide horizontal-slide"><img src="live12.webp" alt="Live Photo 12" loading="lazy"></div>
+      <div class="slide horizontal-slide"><img src="live13.webp" alt="Live Photo 13" loading="lazy"></div>
+      <div class="slide horizontal-slide"><img src="live14.webp" alt="Live Photo 14" loading="lazy"></div>
+      <div class="slide horizontal-slide"><img src="live15.webp" alt="Live Photo 15" loading="lazy"></div>
+      <div class="slide horizontal-slide"><img src="live16.webp" alt="Live Photo 16" loading="lazy"></div>
+      <div class="slide horizontal-slide"><img src="live17.webp" alt="Live Photo 17" loading="lazy"></div>
+      <div class="slide horizontal-slide"><img src="live18.webp" alt="Live Photo 18" loading="lazy"></div>
     </div>
     <div class="arrow left">&#10094;</div>
     <div class="arrow right">&#10095;</div>
@@ -379,13 +379,13 @@
   <!-- 第三滑动区：横版图片 (live19 ～ live25) -->
   <section class="photo-slider horizontal-slider">
     <div class="slider-container" data-slide-width="420">
-      <div class="slide horizontal-slide"><img src="live19.jpg" alt="Live Photo 19"></div>
-      <div class="slide horizontal-slide"><img src="live20.jpg" alt="Live Photo 20"></div>
-      <div class="slide horizontal-slide"><img src="live21.jpg" alt="Live Photo 21"></div>
-      <div class="slide horizontal-slide"><img src="live22.jpg" alt="Live Photo 22"></div>
-      <div class="slide horizontal-slide"><img src="live23.jpg" alt="Live Photo 23"></div>
-      <div class="slide horizontal-slide"><img src="live24.jpg" alt="Live Photo 24"></div>
-      <div class="slide horizontal-slide"><img src="live25.jpg" alt="Live Photo 25"></div>
+      <div class="slide horizontal-slide"><img src="live19.webp" alt="Live Photo 19" loading="lazy"></div>
+      <div class="slide horizontal-slide"><img src="live20.webp" alt="Live Photo 20" loading="lazy"></div>
+      <div class="slide horizontal-slide"><img src="live21.webp" alt="Live Photo 21" loading="lazy"></div>
+      <div class="slide horizontal-slide"><img src="live22.webp" alt="Live Photo 22" loading="lazy"></div>
+      <div class="slide horizontal-slide"><img src="live23.webp" alt="Live Photo 23" loading="lazy"></div>
+      <div class="slide horizontal-slide"><img src="live24.webp" alt="Live Photo 24" loading="lazy"></div>
+      <div class="slide horizontal-slide"><img src="live25.webp" alt="Live Photo 25" loading="lazy"></div>
     </div>
     <div class="arrow left">&#10094;</div>
     <div class="arrow right">&#10095;</div>
@@ -399,12 +399,12 @@
   <!-- ---------------- 品牌宣言区域 ---------------- -->
   <section class="brand-message">
     <p class="english">
-      Blank Joy is an music promoter dedicated to restoring music to its purest essence.
+      Blank Joy is a music collective dedicated to restoring music to its purest essence.
       We curate diverse live music experiences with talented artists from around the world, creating immersive events that forge genuine connections between creators and audiences.
       Through these deeply engaging experiences, we invite everyone to feel the profound emotions of music and resonate with its soul.
     </p>
     <p class="chinese">
-      Blank Joy | 無樂 是一個致力於將音樂回歸本質的音樂策劃推廣者。
+      Blank Joy | 無樂 是一個致力於將音樂回歸本質的音樂策劃團體。
       我們與來自世界各地的才華藝術家合作，策劃多元化的現場音樂體驗，透過沉浸式演出搭建創作者與觀眾之間的真摯橋樑，
       邀請每個人感受音樂深層的情感與靈魂共鳴。
     </p>
@@ -414,10 +414,10 @@
   <section class="social-contact">
     <div class="social-icons">
       <a href="https://www.instagram.com" target="_blank">
-        <img src="instagram.png" alt="Instagram Logo" class="social-logo">
+        <img src="instagram.webp" alt="Instagram Logo" class="social-logo" loading="lazy">
       </a>
       <a href="mailto:someone@example.com">
-        <img src="email.png" alt="Email Logo" class="social-logo">
+        <img src="email.webp" alt="Email Logo" class="social-logo" loading="lazy">
       </a>
     </div>
   </section>
@@ -513,7 +513,6 @@
           const index = (y * canvas.width + x) * 4;
           if (imageData.data[index + 3] > 128) {
             const destination = { x: x, y: y };
-            // 初始位置随机在 canvas 底部以外
             const startX = Math.random() * canvas.width;
             const startY = canvas.height + Math.random() * 100;
             particles.push(new Particle(startX, startY, destination));
